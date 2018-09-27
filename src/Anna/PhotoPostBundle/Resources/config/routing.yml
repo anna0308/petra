@@ -1,0 +1,7 @@
+anna_photo_post_post:
+    resource: "@AnnaPhotoPostBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+
+anna_photo_post_homepage:
+    path:     /
+    defaults: { _controller: AnnaPhotoPostBundle:Default:index }

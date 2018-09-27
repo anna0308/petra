@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+       
+            <div>
+                <h1>Post creation</h1>
+                <a href="{{ path('post_index') }}" class="btn btn-info pull-right" role="button">Back to the list</a>
+            </div>
+            {{ form_start(form) }}
+                {# <div class="" id="date_list" data-prototype="{{form_widget(form.dates.vars.prototype) | e('html_attr')}}">
+                    {% for row in form.dates %}
+                        {{ (form_row(row)) }}
+                    {% endfor %}
+                </div> #}
+                <input type="submit" value="Create" class="btn btn-success"/>
+            {{form_end(form)}}
+    </div>
+{% endblock %}

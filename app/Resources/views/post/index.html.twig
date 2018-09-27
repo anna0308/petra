@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 >Posts list</h1>
+            <a href="{{ path('post_new') }}" class="btn btn-success pull-right" role="button" >Create a new post</a> 
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search" id="search_post">
+            </div>
+            <div class="col-xs-6">
+                <button type="button" id="search"  class="btn btn-info" >Search</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <label for="date">Date: </label>
+                <input class="form-control" type="text" id="datepicker">
+            </div>
+            <div class="col-xs-3">
+                <label for="date">Vote: </label>
+                <select id="vote" class="form-control">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <button type="button" id="filter" class="btn btn-info" style="margin-top:24px">Filter</button>
+            </div>
+        </div>
+        
+        
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Vote</th>
+                {# <th>Createdat</th>
+                <th>Updatedat</th> #}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+                <tr>
+                    <td><a href="{{ path('post_show', { 'id': post.id }) }}">{{ post.id }}</a></td>
+                    <td class="title">{{ post.title }}</td>
+                    <td>{{ post.description }}</td>
+                    <td><img style="width:100px" src="{{ asset('uploads/images/' ~ post.image) }}"/></td>
+                    <td>{{ post.vote }}</td>
+                    {# <td>{% if post.createdAt %}{{ post.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if post.updatedAt %}{{ post.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td> #}
+                    <td>
+                        <div>
+                            <a href="{{ path('post_show', { 'id': post.id }) }}" class="btn btn-info" role="button">show</a>
+                            <a href="{{ path('post_edit', { 'id': post.id }) }}" class="btn btn-info" role="button">edit</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,4 @@
+services:
+#    anna_photo_post.example:
+#        class: Anna\PhotoPostBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

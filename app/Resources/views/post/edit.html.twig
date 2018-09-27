@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Post edit</h1>
+        <div class="row pull-right">
+            {{ form_start(delete_form) }}
+                <a href="{{ path('post_index') }}" class="btn btn-info " role="button">Back to the list</a>
+                <input type="submit" value="Delete" class="btn btn-danger ">
+            {{ form_end(delete_form) }}
+        </div>
+        <img style="width:200px" src="{{ asset('uploads/images/' ~ post.image) }}"/>
+        {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            {# <div class="" id="post_list" data-prototype="{{form_widget(form.dates.vars.prototype) | e('html_attr')}}">
+                {% for row in form.dates %}
+                    {{ form_row(row) }}
+                {% endfor %}
+            </div> #}
+            <input type="submit" value="Edit" class="btn btn-success pull-left"/>
+        {{ form_end(edit_form) }}
+    </div>
+{% endblock %}
